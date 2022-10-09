@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Button, ButtonGroup, Col, Container, Navbar, Row, Table } from 'react-bootstrap'
+import { Button, ButtonGroup, Col, Container, Form, Navbar, Row, Table } from 'react-bootstrap'
 import { toast, ToastContainer } from "react-toastify"
 // import "react-toastify/dist/react-toastify.css"
 
@@ -14,7 +14,9 @@ const initState = {
 }
 
 const Formjsonapp = () => {
+  const [state, setState] = useState([])
   const [data, setData] = useState([])
+  const {name, email, contact, address} = state
 
   useEffect (() => {
     loadUsers()
@@ -24,6 +26,8 @@ const Formjsonapp = () => {
     const response = await axios.get(api)
     setData(response.data)
   }
+
+  // const handle
 
   return (
     <>
@@ -36,7 +40,48 @@ const Formjsonapp = () => {
       <Container>
         <Row>
           <Col md={4}>
-            <h2>Form</h2>
+            <Form>
+              <Form.Group>
+                <Form.Label style={{ textAlign: "left" }}>Name</Form.Label>
+                <Form.Control
+                  type='email'
+                  placeholder='Enter Name'
+                  name='name'
+                  value={name}
+                >
+                </Form.Control>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label style={{ textAlign: "left" }}>Email</Form.Label>
+                <Form.Control
+                  type='email'
+                  placeholder='Enter Email'
+                  name='email'
+                  value={email}
+                >
+                </Form.Control>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label style={{ textAlign: "left" }}>Contact</Form.Label>
+                <Form.Control
+                  type='text'
+                  placeholder='Enter contact'
+                  name='contact'
+                  value={contact}
+                >
+                </Form.Control>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label style={{ textAlign: "left" }}>Address</Form.Label>
+                <Form.Control
+                  type='text'
+                  placeholder='Enter Address'
+                  name='address'
+                  value={address}
+                >
+                </Form.Control>
+              </Form.Group>
+            </Form>
           </Col>
           <Col md={8}>
             <Table>
