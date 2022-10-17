@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Button, ButtonGroup, Col, Container, Form, Navbar, Row, Table } from 'react-bootstrap'
+import { Table, Container, Button, ButtonGroup, Col, Form, Navbar, Row } from 'react-bootstrap'
 import { toast, ToastContainer } from "react-toastify"
-// import "react-toastify/dist/react-toastify.css"
+import "react-toastify/dist/ReactToastify.css"
 
 const api = "http://localhost:8080/users"
 
@@ -32,7 +32,7 @@ const Formjsonapp = () => {
   return (
     <>
       <ToastContainer />
-      <Navbar>
+      <Navbar bg='primary' variant="dark" className='justify-content-center'>
         <Navbar.Brand>
           build and deploy React app using JSON server on heroku
         </Navbar.Brand>
